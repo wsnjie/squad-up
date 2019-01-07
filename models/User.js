@@ -1,7 +1,7 @@
 const mongoose = require('../db/connection')
 const Schema = mongoose.Schema
 
-const News = new Schema({
+const User = new Schema({
     name: String,
     email: String,
     schedule: [{
@@ -10,4 +10,4 @@ const News = new Schema({
     }]
 })
 
-module.exports = mongoose.model("News", News)
+module.exports = mongoose.model("User", User)
