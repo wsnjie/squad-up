@@ -1,13 +1,12 @@
 const mongoose = require('../db/connection')
 const Schema = mongoose.Schema
 
-const User = new Schema({
+const MasterSchedule = new Schema({
     name: String,
-    email: String,
     schedule: [{
         type: Schema.Types.ObjectId,
         ref: 'Schedule'
     }]
 })
 
-module.exports = mongoose.model("Event", Event)
+module.exports = mongoose.model("MasterSchedule", MasterSchedule)
