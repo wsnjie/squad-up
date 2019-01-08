@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 
 // this is where we use our middleware
 
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'))
