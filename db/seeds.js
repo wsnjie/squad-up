@@ -1,6 +1,5 @@
 const User = require("../models/User")
 const Schedule = require("../models/Schedule")
-const Day = require("../models/Day")
 const Event = require("../models/Event")
 const MasterSchedule = require("../models/MasterSchedule")
 const moment = require("moment")
@@ -51,56 +50,24 @@ const zomboy = new Event({
     stage: "Main Stage"
 })
 
-const day1W = new Day({
-    name: "Day 1",
-    events: [zedd, excision]
-})
-const day1J = new Day({
-    name: "Day 1",
-    events: [zedd, zomboy]
-})
-
-const day2W = new Day({
-    name: "Day 2",
-    events: [sevenLions, glitchMob]
-})
-const day2J = new Day({
-    name: "Day 2",
-    events: [sevenLions, killTheNoise]
-})
-const day3W = new Day({
-    name: "Day 3",
-    events: [zedsDead, illenium]
-})
-const day3J = new Day({
-    name: "Day 3",
-    events: [porterRobinson, illenium]
-})
-const day1M = new Day({
-    name: "Day 1",
-    events: [zedd, excision, zomboy]
-})
-const day2M = new Day({
-    name: "Day 1",
-    events: [sevenLions, glitchMob, killTheNoise]
-})
-const day3M = new Day({
-    name: "Day 1",
-    events: [zedsDead, illenium, porterRobinson]
-})
-
 
 const scheduleW = new Schedule({
     name: "William's Schedule",
-    days: [day1W, day2W, day3W]
+    day1: [zedd, excision],
+    day2: [sevenLions, glitchMob],
+    day3: [zedsDead, illenium]
 })
 const scheduleJ = new Schedule({
     name: "James's Schedule",
-    days: [day1J, day2J, day3J]
+    day1: [zedd, zomboy],
+    day2: [sevenLions, killTheNoise],
+    day3: [porterRobinson, illenium]
 })
 const scheduleMaster = new Schedule({
     name: "Master Schedule",
-    days: [day1M, day2M, day3M]
+    day1: [zedd, excision, zomboy],
+    day2: [sevenLions, glitchMob, killTheNoise],
+    day3: [zedsDead, illenium, porterRobinson]
 })
 
 const will = new User({
@@ -120,11 +87,10 @@ const master = new MasterSchedule({
 
 User.remove({})
     .then(() => Schedule.remove({}))
-    .then(() => Day.remove({}))
     .then(() => Event.remove({}))
+    .then(() => Day.remove({}))
     .then(() => MasterSchedule.remove({}))
     .then(() => Event.insertMany([excision, zomboy, zedd, sevenLions, glitchMob, killTheNoise, zedsDead, illenium, porterRobinson]))
-    .then(() => Day.insertMany([day1W, day1J, day1M, day2W, day2J, day2M, day3W, day3J, day3M]))
     .then(() => Schedule.insertMany([scheduleW, scheduleJ, scheduleMaster]))
     .then(() => will.save())
     .then(() => james.save())
