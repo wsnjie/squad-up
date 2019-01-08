@@ -11,14 +11,14 @@
         </div>
     </div>
 </nav>
-<div class="tile is-ancestor">
+<div id="userCards" class="tile is-parent">
 
     {{#each users}}
     <div class="tile is-child box">
         <p class="title">{{name}}</p>
         <p>Likes: {{schedule.day1.0.performer}} and {{schedule.day2.0.performer}}!
         </p>
-        <a class="button" href="/views/user/show.hbs">Schedule</a>
+        <a class="button" href="/{{_id}}">Schedule</a>
     </div>
     {{/each}}
     <div class="tile is-child box">

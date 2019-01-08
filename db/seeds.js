@@ -6,48 +6,57 @@ const moment = require("moment")
 
 const zedd = new Event({
     performer: "Zedd",
-    time: moment("13:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("13:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 1
 })
 const sevenLions = new Event({
     performer: "Seven Lions",
-    time: moment("18:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("18:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 2
 })
 const zedsDead = new Event({
     performer: "Zed's Dead",
-    time: moment("14:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("14:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 1
 })
 const glitchMob = new Event({
     performer: "Glitch Mob",
-    time: moment("16:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("16:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 1
 })
 const illenium = new Event({
     performer: "Illenium",
-    time: moment("20:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("20:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 2
 })
 const excision = new Event({
     performer: "Excision",
-    time: moment("19:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("19:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 2
 })
 const porterRobinson = new Event({
     performer: "Porter Robinson",
-    time: moment("22:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("22:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 3
 })
 const killTheNoise = new Event({
     performer: "Kill The Noise",
-    time: moment("23:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("23:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 3
 })
 const zomboy = new Event({
     performer: "Zomboy",
-    time: moment("15:00", "HH:mm").format(),
-    stage: "Main Stage"
+    time: moment("15:00", "HH:mm").format("HH:mm"),
+    stage: "Main Stage",
+    position: 2
 })
 
 
@@ -88,7 +97,6 @@ const master = new MasterSchedule({
 User.remove({})
     .then(() => Schedule.remove({}))
     .then(() => Event.remove({}))
-    .then(() => Day.remove({}))
     .then(() => MasterSchedule.remove({}))
     .then(() => Event.insertMany([excision, zomboy, zedd, sevenLions, glitchMob, killTheNoise, zedsDead, illenium, porterRobinson]))
     .then(() => Schedule.insertMany([scheduleW, scheduleJ, scheduleMaster]))

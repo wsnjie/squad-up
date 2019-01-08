@@ -24,39 +24,48 @@ const userController = {
     new: (req, res) => {
         res.render("user/new")
     },
-    // create: (req, res) => {
-    //     User.create({
-    //         name: req.body.name,
-    //         email: req.body.email
-    //     }).then(newUser => {
-    //         newUser.schedule = Schedule.create({
-    //             name: newUser.name + "'s Schedule"
-    //         }).then(schedule => {
-    //             const day1 = Day.create({
-    //                 name: "Day 1"
-    //             }).then(day => {
-    //                 schedule.days.push(day)
-    //             })
-    //             const day2 = Day.create({
-    //                 name: "Day 2"
-    //             }).then(day => {
-    //                 schedule.days.push(day)
-    //             })
-    //             const day3 = Day.create({
-    //                 name: "Day 3"
-    //             }).then(day => {
-    //                 schedule.days.push(day)
-    //             })
+    create: (req, res) => {
+        const newSchedule = new Schedule({
+            name: req.body.name + "'s Schedule"
+        })
+        const newUser = new User({
+            name: req.body.name,
+            email: req.body.email,
+            schedule: newSchedule
+        })
 
-    //             Promise.all([day1, day2, day3]).then(() => {
-    //                 schedule.save()
-    //             })
-
-    //         })
-    //     }).then(() => {
-    //         res.redirect("/")
-    //     })
-    // }
+        Schedule.insertMany([newSchedule])
+            .then(() => newUser.save())
+            .then(() => {
+                res.redirect("/")
+            })
+    },
+    show: (req, res) => {
+        const daySort = function (day) {
+            day.sort((a, b) => {
+                return a.position - b.position
+            })
+        }
+        User.findById(req.params.id)
+            .populate({
+                path: 'schedule',
+                populate: [{
+                    path: "day1",
+                }, {
+                    path: "day2"
+                }, {
+                    path: "day3"
+                }]
+            })
+            .then(user => {
+                console.log(user.schedule.day1)
+                daySort(user.schedule.day1)
+                console.log(user.schedule.day1)
+                // daySort(user.day2)
+                // daySort(user.day3)
+                res.render("user/show", { user })
+            })
+    }
 }
 
 module.exports = userController

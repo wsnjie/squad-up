@@ -1,1 +1,16 @@
-<h1>This is the show View!</h1>
+<h1>{{user.schedule.name}}</h1>
+<div id="schedule-wrapper">
+    <div class="day-col">
+        <h2>Day 1</h2>
+        {{#each user.schedule.day1}}
+        {{performer}}
+        {{time}}
+        {{/each}}
+    </div>
+    <div class="day-col">
+        <h2>Day 2</h2>
+    </div>
+    <div class="day-col">
+        <h2>Day 3</h2>
+    </div>
+</div>

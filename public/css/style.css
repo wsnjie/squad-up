@@ -1,4 +1,25 @@
 card{
-    height: 70px;
-    width: 33%vw;
+    height: 100px;
+    width: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#userCards{
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap
+}
+
+#schedule-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.day-col{
+    display: flex;
+    flex-direction: colmun;
+    width: 33vw;
+    height: 1000px;
 }
