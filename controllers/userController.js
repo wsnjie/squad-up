@@ -14,11 +14,8 @@ const userController = {
                     populate: { path: "events" }
                 }
             })
-            // .populate({ path: "days" })
-            // .populate({ path: 'events' })
             .then(users => {
                 res.render("user/index", { users })
-                console.log(users)
             })
 
     }
