@@ -38,7 +38,7 @@ const excision = new Event({
     performer: "Excision",
     time: moment("19:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 2
+    position: 3
 })
 const porterRobinson = new Event({
     performer: "Porter Robinson",

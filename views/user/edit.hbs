@@ -1,1 +1,35 @@
 <h1>This is the Edit Form</h1>
+<div id="schedule-wrapper">
+    <div class="day-col">
+        <h2>Day 1</h2>
+        <br>
+        {{#each master.schedule.day1}}
+        <div class="event">
+            <p>{{performer}}</p>
+            <p>{{time}}</p>
+        </div>
+        {{/each}}
+    </div>
+    <div class="day-col">
+        <h2>Day 2</h2>
+        <br>
+        {{#each master.schedule.day2}}
+        <div class="event">
+            {{performer}}
+            <br>
+            {{time}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="day-col">
+        <h2>Day 3</h2>
+        <br>
+        {{#each master.schedule.day3}}
+        <div class="event">
+            {{performer}}
+            <br>
+            {{time}}
+        </div>
+        {{/each}}
+    </div>
+</div>

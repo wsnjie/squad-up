@@ -3,6 +3,12 @@ const Schedule = require("../models/Schedule")
 const Event = require("../models/Event")
 const MasterSchedule = require("../models/MasterSchedule")
 
+const daySort = function (day) {
+    day.sort((a, b) => {
+        return a.position - b.position
+    })
+}
+
 const userController = {
     index: (req, res) => {
         User.find({})
@@ -22,11 +28,31 @@ const userController = {
 
     },
     new: (req, res) => {
-        res.render("user/new")
+        MasterSchedule.findOne({ name: "Master Schedule" })
+            .populate({
+                path: 'schedule',
+                populate: [{
+                    path: "day1",
+                }, {
+                    path: "day2"
+                }, {
+                    path: "day3"
+                }]
+            })
+            .then(master => {
+                daySort(master.schedule.day1)
+                daySort(master.schedule.day2)
+                daySort(master.schedule.day3)
+                res.render("user/new", { master })
+            })
     },
     create: (req, res) => {
         const newSchedule = new Schedule({
-            name: req.body.name + "'s Schedule"
+            name: req.body.name + "'s Schedule",
+            day1: req.body.going1,
+            day2: req.body.going2,
+            day3: req.body.going3
+
         })
         const newUser = new User({
             name: req.body.name,
@@ -41,11 +67,6 @@ const userController = {
             })
     },
     show: (req, res) => {
-        const daySort = function (day) {
-            day.sort((a, b) => {
-                return a.position - b.position
-            })
-        }
         User.findById(req.params.id)
             .populate({
                 path: 'schedule',

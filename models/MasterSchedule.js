@@ -3,10 +3,10 @@ const Schema = mongoose.Schema
 
 const MasterSchedule = new Schema({
     name: String,
-    schedule: [{
+    schedule: {
         type: Schema.Types.ObjectId,
         ref: 'Schedule'
-    }]
+    }
 })
 
 module.exports = mongoose.model("MasterSchedule", MasterSchedule)

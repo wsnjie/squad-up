@@ -8,4 +8,6 @@ router.get("/new", userController.new)
 router.post("/", userController.create)
 router.get("/:id", userController.show)
 
+router.get("/:id/edit", scheduleController.edit)
+
 module.exports = router

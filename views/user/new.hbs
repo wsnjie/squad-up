@@ -4,4 +4,44 @@
     <input type="text" name="name" placeholder="Name" value="">
     <input type="text" name="email" placeholder="Email" value="">
     <button type="submit" class="button is-success">Submit</button>
+    <div id="schedule-wrapper">
+        <div class="day-col">
+            <h2>Day 1</h2>
+            <br>
+            {{#each master.schedule.day1}}
+            <div class="event">
+                <p>{{performer}}</p>
+                <p>{{time}}</p>
+                <div><input type="checkbox" name="going1" value="{{_id}}">
+                    Going</input>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="day-col">
+            <h2>Day 2</h2>
+            <br>
+            {{#each master.schedule.day2}}
+            <div class="event">
+                <p>{{performer}}</p>
+                <p>{{time}}</p>
+                <div><input type="checkbox" name="going2" value="{{_id}}">
+                    Going</input>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="day-col">
+            <h2>Day 3</h2>
+            <br>
+            {{#each master.schedule.day3}}
+            <div class="event">
+                <p>{{performer}}</p>
+                <p>{{time}}</p>
+                <div><input type="checkbox" name="going3" value="{{_id}}">
+                    Going</input>
+                </div>
+            </div>
+            {{/each}}
+        </div>
 </form>
