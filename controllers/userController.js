@@ -8,10 +8,13 @@ const userController = {
         User.find({})
             .populate({
                 path: 'schedule',
-                populate: {
-                    path: "days",
-                    populate: { path: "events" }
-                }
+                populate: [{
+                    path: "day1",
+                }, {
+                    path: "day2"
+                }, {
+                    path: "day3"
+                }]
             })
             .then(users => {
                 res.render("user/index", { users })
