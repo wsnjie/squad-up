@@ -118,16 +118,14 @@ const master = new MasterSchedule({
     schedule: scheduleMaster
 })
 
-
-
-// User.deleteMany({}).then(() => {
-//     Schedule.deleteMany({}).then(() => {
-//         Day.deleteMany({}).then(() => {
-//             Event.deleteMany({}).then(() => {
-//                 MasterSchedule.deleteMany({}).then(() => {
-//                     User.create({})
-//                 })
-//             })
-//         })
-//     })
-// })
+User.remove({})
+    .then(() => Schedule.remove({}))
+    .then(() => Day.remove({}))
+    .then(() => Event.remove({}))
+    .then(() => MasterSchedule.remove({}))
+    .then(() => Event.insertMany([excision, zomboy, zedd, sevenLions, glitchMob, killTheNoise, zedsDead, illenium, porterRobinson]))
+    .then(() => Day.insertMany([day1W, day1J, day1M, day2W, day2J, day2M, day3W, day3J, day3M]))
+    .then(() => Schedule.insertMany([scheduleW, scheduleJ, scheduleMaster]))
+    .then(() => will.save())
+    .then(() => james.save())
+    .then(() => master.save())
