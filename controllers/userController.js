@@ -18,6 +18,43 @@ const userController = {
                 res.render("user/index", { users })
             })
 
+    },
+    new: (req, res) => {
+        res.render("user/new")
+    },
+    create: (req, res) => {
+        User.create({
+            name: req.body.name,
+            email: req.body.email
+        }).then(newUser => {
+            newUser.schedule = Schedule.create({
+                name: newUser.name + "'s Schedule"
+            }).then(schedule => {
+                const day1 = Day.create({
+                    name: "Day 1"
+                }).then(day => {
+                    schedule.days.push(day)
+                })
+                const day2 = Day.create({
+                    name: "Day 2"
+                }).then(day => {
+                    schedule.days.push(day)
+                })
+                const day3 = Day.create({
+                    name: "Day 3"
+                }).then(day => {
+                    schedule.days.push(day)
+                })
+
+                Promise.all([day1, day2, day3]).then(() => {
+                    schedule.save()
+                })
+
+            }).then(() =>
+                newUser.save())
+        }).then(() => {
+            res.redirect("/")
+        })
     }
 }
 
