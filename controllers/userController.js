@@ -58,11 +58,9 @@ const userController = {
                 }]
             })
             .then(user => {
-                console.log(user.schedule.day1)
                 daySort(user.schedule.day1)
-                console.log(user.schedule.day1)
-                // daySort(user.day2)
-                // daySort(user.day3)
+                daySort(user.schedule.day2)
+                daySort(user.schedule.day3)
                 res.render("user/show", { user })
             })
     }

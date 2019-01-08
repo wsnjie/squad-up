@@ -19,7 +19,16 @@ card{
 
 .day-col{
     display: flex;
-    flex-direction: colmun;
+    flex-direction: column;
     width: 33vw;
     height: 1000px;
+    flex-wrap: nowrap;
+}
+
+.event{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    width: 33vw;
+    height: 100px;
 }
