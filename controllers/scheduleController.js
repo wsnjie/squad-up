@@ -71,28 +71,7 @@ const scheduleController = {
             })
 
     },
-    // update: (req, res) => {
-    //     User.findById(req.params.id)
-    //         .populate({
-    //             path: 'schedule',
-    //             populate: [{
-    //                 path: "day1",
-    //             }, {
-    //                 path: "day2"
-    //             }, {
-    //                 path: "day3"
-    //             }]
-    //         }).then(user => {
-    //             console.log("Before delete" + user.schedule.day1)
-    //           user.update()
-    //             // deleteFromDay(req.body.delete2, user.schedule.day2)
-    //             // deleteFromDay(req.body.delete3, user.schedule.day3)
-    //             console.log("After delete" + user.schedule.day1)
 
-    //         }).then(() => {
-    //             res.redirect("/" + req.params.id)
-    //         })
-    // }
     update: (req, res) => {
         User.findById(req.params.id).populate({
             path: 'schedule'
@@ -124,6 +103,7 @@ const scheduleController = {
                 })
             } else if (typeof req.body.delete2 == 'undefined') {
                 console.log("nothing to delete")
+
             } if (typeof req.body.delete3 == 'array') {
                 req.body.delete3.forEach(del => {
                     Schedule.findByIdAndUpdate(user.schedule._id, { $pull: { day3: del } }).then(() => {
