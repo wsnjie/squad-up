@@ -8,55 +8,64 @@ const zedd = new Event({
     performer: "Zedd",
     time: moment("13:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 1
+    position: 1,
+    isScheduled: ""
 })
 const sevenLions = new Event({
     performer: "Seven Lions",
     time: moment("18:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 2
+    position: 2,
+    isScheduled: ""
 })
 const zedsDead = new Event({
     performer: "Zed's Dead",
     time: moment("14:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 1
+    position: 1,
+    isScheduled: ""
 })
 const glitchMob = new Event({
     performer: "Glitch Mob",
     time: moment("16:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 1
+    position: 1,
+    isScheduled: ""
 })
 const illenium = new Event({
     performer: "Illenium",
     time: moment("20:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 2
+    position: 2,
+    isScheduled: ""
 })
 const excision = new Event({
     performer: "Excision",
     time: moment("19:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 3
+    position: 3,
+    isScheduled: ""
 })
 const porterRobinson = new Event({
     performer: "Porter Robinson",
     time: moment("22:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 3
+    position: 3,
+    isScheduled: ""
 })
 const killTheNoise = new Event({
     performer: "Kill The Noise",
     time: moment("23:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 3
+    position: 3,
+    isScheduled: ""
 })
 const zomboy = new Event({
     performer: "Zomboy",
     time: moment("15:00", "HH:mm").format("HH:mm"),
     stage: "Main Stage",
-    position: 2
+    position: 2,
+    isScheduled: ""
 })
 
 

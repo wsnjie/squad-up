@@ -5,7 +5,8 @@ const Event = new Schema({
     performer: String,
     time: String,
     stage: String,
-    position: Number
+    position: Number,
+    isScheduled: String
 })
 
 module.exports = mongoose.model("Event", Event)

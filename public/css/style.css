@@ -32,3 +32,22 @@ card{
     width: 33vw;
     height: 100px;
 }
+
+.delete-radio{
+    display: none;
+}
+
+.scheduled{
+    background-color: rgb(67, 129, 210);
+}
+.scheduled .delete-radio{
+    display: block;
+}
+
+.scheduled .add-radio{
+    display: none;
+}
+
+
+
+
