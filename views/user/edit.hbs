@@ -1,5 +1,5 @@
 <h1>{{currentUser.name}}'s Schedule</h1>
-<form action="/id/edit" method="POST">
+<form action="/{{currentUser._id}}/edit?_method=PATCH" method="POST">
     <button type="submit" class="button is-success">Submit</button>
     <div id="schedule-wrapper">
         <div class="day-col">
