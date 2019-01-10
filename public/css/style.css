@@ -1,14 +1,25 @@
 body{
+    height: 100vh;
+    width: 100vw;
     background-image: url("/assets/danny-howe-762860-unsplash.jpg");
     background-size:cover ;
     background-attachment: fixed;
     font-family: 'Asul', sans-serif;
+    color: #D8E0CE;
+}
+.title{
+    color: #D8E0CE;
 }
 #userCards{
     height: auto;
     width: 100vw;
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+}
+
+.users{
+    background-color: #948AC6;
+    border: 2px #69B7D6 solid;
 }
 
 #schedule-wrapper{
@@ -30,9 +41,10 @@ body{
     text-align: center;
     width: 33vw;
     height: 100px;
-    border: #B5ACA3 3px solid;
+    border: #948AC6 3px solid;
     border-radius: 15%;
-    background-color: #D8E0CE;
+    background-color: #69B7D6;
+    color: #E5FFDE;
 }
 
 .delete-radio{
@@ -40,12 +52,10 @@ body{
 }
 
 .scheduled{
-    background-color: #D8E0CE;
+    background-color: #E89678;
 }
 
-.not-scheduled{
-    background-color: #D95D39;
-}
+
 
 .scheduled .delete-radio{
     display: block;
