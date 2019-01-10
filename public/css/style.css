@@ -1,8 +1,9 @@
 body{
-    height: 100vh;
+    height: auto;
     width: 100vw;
     background-image: url("/assets/danny-howe-762860-unsplash.jpg");
     background-size:cover ;
+    background-repeat: repeat-y;
     background-attachment: fixed;
     font-family: 'Asul', sans-serif;
     color: #D8E0CE;
