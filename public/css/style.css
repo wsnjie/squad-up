@@ -1,10 +1,9 @@
-card{
-    height: 100px;
-    width: auto;
-    display: flex;
-    flex-wrap: nowrap;
+body{
+    background-image: url("/assets/danny-howe-762860-unsplash.jpg");
+    background-size:cover ;
+    background-attachment: fixed;
+    font-family: 'Asul', sans-serif;
 }
-
 #userCards{
     height: auto;
     width: 100vw;
@@ -31,6 +30,9 @@ card{
     text-align: center;
     width: 33vw;
     height: 100px;
+    border: #B5ACA3 3px solid;
+    border-radius: 15%;
+    background-color: #D8E0CE;
 }
 
 .delete-radio{
@@ -38,8 +40,13 @@ card{
 }
 
 .scheduled{
-    background-color: rgb(67, 129, 210);
+    background-color: #D8E0CE;
 }
+
+.not-scheduled{
+    background-color: #D95D39;
+}
+
 .scheduled .delete-radio{
     display: block;
 }

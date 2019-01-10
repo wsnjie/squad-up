@@ -1,50 +1,71 @@
 <h1>{{currentUser.name}}'s Schedule</h1>
-<form action="/{{currentUser._id}}/edit?_method=PATCH" method="POST">
-    <button type="submit" class="button is-success">Submit</button>
-    <div id="schedule-wrapper">
-        <div class="day-col">
-            <h2>Day 1</h2>
-            <br>
-            {{#each masterSched.schedule.day1}}
-            <div class="event {{isScheduled}}">
-                <p>{{performer}}</p>
-                <p>{{time}}</p>
-                <div><span class="add-radio"><input type="checkbox" name="add1" value="{{_id}}" label="Add">
-                        Add</input></span><span class="delete-radio"><input type="checkbox" name="delete1" value="{{_id}}">
-                        Delete</input></span>
-                </div>
+
+<a href="/{{currentUser._id}}" type="submit" class="button is-success">Submit</a>
+<div id="schedule-wrapper">
+    <div class="day-col">
+        <h2>Day 1</h2>
+        <br>
+        {{#each masterSched.schedule.day1}}
+
+        <div class="
+    event {{isScheduled}}">
+            <p>{{performer}}</p>
+            <p>{{time}}</p>
+            <div><span class="
+    delete-radio">
+                    <form action="/{{../currentUser.schedule._id}}/{{_id}}/day1/{{../currentUser._id}}?_method=PATCH"
+                        method="POST">
+                        <button type="submit" class="button is-danger" value="{{_id}}">Delete</button></form>
+                </span>
+                <span class="add-radio">
+                    <form action="/{{../currentUser.schedule._id}}/{{_id}}/day1/{{../currentUser._id}}?_method=PUT"
+                        method="POST">
+                        <button type="submit" class="button is-success" value="{{_id}}">Add</button></form>
+                </span>
             </div>
-            {{/each}}
         </div>
-        <div class="day-col">
-            <h2>Day 2</h2>
-            <br>
-            {{#each masterSched.schedule.day2}}
-            <div class="event {{isScheduled}}">
-                {{performer}}
-                <br>
-                {{time}}
-                <div><span class="add-radio"><input type="checkbox" name="add2" value="{{_id}}" label="Add">
-                        Add</input></span><span class="delete-radio"><input type="checkbox" name="delete2" value="{{_id}}">
-                        Delete</input></span>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-        <div class="day-col">
-            <h2>Day 3</h2>
-            <br>
-            {{#each masterSched.schedule.day3}}
-            <div class="event {{isScheduled}}">
-                {{performer}}
-                <br>
-                {{time}}
-                <div><span class="add-radio"><input type="checkbox" name="add3" value="{{_id}}" label="Add">
-                        Add</input></span><span class="delete-radio"><input type="checkbox" name="delete3" value="{{_id}}">
-                        Delete</input></span>
-                </div>
-            </div>
-            {{/each}}
-        </div>
+        {{/each}}
     </div>
-</form>
+    <div class="day-col">
+        <h2>Day 2</h2>
+        <br>
+        {{#each masterSched.schedule.day2}}
+        <div class="event {{isScheduled}}">
+            <p>{{performer}}</p>
+            <p>{{time}}</p>
+            <div><span class="delete-radio">
+                    <form action="/{{../currentUser.schedule._id}}/{{_id}}/day2/{{../currentUser._id}}?_method=PATCH"
+                        method="POST">
+                        <button type="submit" class="button is-danger" value="{{_id}}">Delete</button></form>
+                </span>
+                <span class="add-radio">
+                    <form action="/{{../currentUser.schedule._id}}/{{_id}}/day2/{{../currentUser._id}}?_method=PUT"
+                        method="POST">
+                        <button type="submit" class="button is-success" value="{{_id}}">Add</button></form>
+                </span>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="day-col">
+        <h2>Day 3</h2>
+        <br>
+        {{#each masterSched.schedule.day3}}
+        <div class="event {{isScheduled}}">
+            <p>{{performer}}</p>
+            <p>{{time}}</p>
+            <div><span class="delete-radio">
+                    <form action="/{{../currentUser.schedule._id}}/{{_id}}/day3/{{../currentUser._id}}?_method=PATCH"
+                        method="POST">
+                        <button type="submit" class="button is-danger" value="{{_id}}">Delete</button></form>
+                </span>
+                <span class="add-radio">
+                    <form action="/{{../currentUser.schedule._id}}/{{_id}}/day3/{{../currentUser._id}}?_method=PUT"
+                        method="POST">
+                        <button type="submit" class="button is-success" value="{{_id}}">Add</button></form>
+                </span>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

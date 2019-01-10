@@ -9,6 +9,7 @@ router.post("/", userController.create)
 router.get("/:id", userController.show)
 
 router.get("/:id/edit", scheduleController.edit)
-router.patch("/:id/edit", scheduleController.update)
+router.put("/:scheduleId/:eventId/:day/:userId", scheduleController.addEvent)
+router.patch("/:scheduleId/:eventId/:day/:userId", scheduleController.removeEvent)
 
 module.exports = router
