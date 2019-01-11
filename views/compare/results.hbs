@@ -1,0 +1,38 @@
+<h1>You have these artists in common with:{{userB.name}} </h1>
+<a href="/{{userA._id}}" type="submit" class="button is-success">Submit</a>
+<div id="schedule-wrapper">
+    <div class="day-col">
+        <h2>Day 1</h2>
+        <br>
+        {{#each compResults.day1}}
+
+        <div class="
+    event {{isScheduled}}">
+            <p>{{performer}}</p>
+            <p>{{time}}</p>
+        </div>
+        {{/each}}
+    </div>
+    <div class="day-col">
+        <h2>Day 2</h2>
+        <br>
+        {{#each compResults.day2}}
+        <div class="event {{isScheduled}}">
+            <p>{{performer}}</p>
+            <p>{{time}}</p>
+
+        </div>
+        {{/each}}
+    </div>
+    <div class="day-col">
+        <h2>Day 3</h2>
+        <br>
+        {{#each compResults.day3}}
+        <div class="event {{isScheduled}}">
+            <p>{{performer}}</p>
+            <p>{{time}}</p>
+
+        </div>
+        {{/each}}
+    </div>
+</div>

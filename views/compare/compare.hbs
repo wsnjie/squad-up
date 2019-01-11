@@ -1,0 +1,17 @@
+<h1 class="subtitle is-2">Choose A Friend and Compare Schedules!</h1>
+
+<div id="userCards" class="tile is-parent">
+
+    {{#each users}}
+    <div class="tile users is-child box">
+        <p class="title">{{name}}</p>
+        <p>Likes: {{schedule.day1.0.performer}} and {{schedule.day2.0.performer}}!
+        </p>
+        <a class="button" href="/{{../userId}}/compare/{{_id}}">Compare</a>
+    </div>
+    {{/each}}
+    <div class="tile is-child box">
+
+    </div>
+
+</div>
